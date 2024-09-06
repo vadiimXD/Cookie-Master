@@ -1,0 +1,25 @@
+nav {
+    background-color: blueviolet;
+    padding: 0;
+    margin: 0;
+    max-width: inherit;
+}
+
+nav>ul {
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    padding: 1em;
+    list-style: none;
+    border: 1px solid black;
+    margin: 0.5em;
+    min-width: 2em;
+    text-align: center;
+}
+
+li:hover{
+    background-color: rgb(123, 38, 202);
+    cursor: pointer;
+}
