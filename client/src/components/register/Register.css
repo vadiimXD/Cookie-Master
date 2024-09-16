@@ -1,0 +1,13 @@
+form {
+    max-width: 800px;
+    margin: 10em auto;
+    border: 2px solid black;
+}
+
+.inp {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+    border: 2px solid black;
+    margin: 1em;
+}

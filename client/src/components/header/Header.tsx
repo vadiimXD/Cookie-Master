@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./Header.css"
 
 export default function Header() {
@@ -5,11 +7,10 @@ export default function Header() {
         <header>
             <nav>
                 <ul>
-                    <li>3</li>
-                    <li>2</li>
-                    <li>1</li>
+                    <li> <Link to="/register" className="button">Register</Link> </li>
+
                 </ul>
             </nav>
-        </header>
+        </header >
     );
 }
