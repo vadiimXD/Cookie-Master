@@ -8,6 +8,7 @@ export default function Header() {
             <nav>
                 <ul>
                     <li> <Link to="/register" className="button">Register</Link> </li>
+                    <li> <Link to="/login" className="button">Login</Link> </li>
 
                 </ul>
             </nav>
