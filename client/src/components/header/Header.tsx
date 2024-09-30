@@ -15,21 +15,25 @@ export default function Header() {
         <header>
             <nav>
                 <ul>
+                    <li> <Link to="/" className="button">Home</Link> </li>
+                    <li> <Link to="/search" className="button">Search</Link> </li>
                     {isLogged
                         ?
                         <>
+                            <li> <Link to="/create" className="button">Create</Link> </li>
+                            <li> <Link to="/profile" className="button">Profile</Link> </li>
                             <li> <a className="button" onClick={() => {
                                 context?.setState(false)
                                 localStorage.clear()
                                 navigate("/login")
                             }}>Logout</a> </li>
+
                         </>
                         :
                         <>
                             <li> <Link to="/register" className="button">Register</Link> </li>
                             <li> <Link to="/login" className="button">Login</Link> </li>
                         </>}
-                    <li> <Link to="/" className="button">Home</Link> </li>
 
 
                 </ul>

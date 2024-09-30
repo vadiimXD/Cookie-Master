@@ -59,14 +59,14 @@ export default function Register() {
                 </div>
                 <div className="line" />
                 <div className="media-options">
-                    <a href="#" className="field facebook">
-                        <i className="bx bxl-facebook facebook-icon" />
-                        <span>Register with Facebook</span>
+                    <a href="#" className="field google">
+                        <img src="https://cdn1.iconfinder.com/data/icons/social-media-set-for-free/32/facebook-512.png" alt="" className="google-img" />
+                        <span>Login with Facebook</span>
                     </a>
                 </div>
                 <div className="media-options">
                     <a href="#" className="field google">
-                        <img src="images/google.png" alt="" className="google-img" />
+                        <img src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-pks9lbdv.png" alt="" className="google-img" />
                         <span>Register with Google</span>
                     </a>
                 </div>
