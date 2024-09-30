@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "./Register.css"
 import { changeHandler, registerFormSubmitHandler } from "../../utils/formUtils";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Register() {
@@ -22,7 +22,7 @@ export default function Register() {
         <section className="container forms">
             <div className="form login">
                 <div className="form-content">
-                    <header>Register</header>
+                    <h3>Register</h3>
                     <form onSubmit={(e) => registerFormSubmitHandler(e, registerFormValues, context?.setState, navigate, setError)}>
 
                         <div className="field input-field">
@@ -51,9 +51,9 @@ export default function Register() {
                     <div className="form-link">
                         <span>
                            <p>Already have account?</p>
-                            <a href="#" className="link signup-link">
+                            <Link to="/login" className="link signup-link">
                                 Login
-                            </a>
+                            </Link>
                         </span>
                     </div>
                 </div>

@@ -1,10 +1,10 @@
 nav {
-    background-color: rgb(53, 50, 55);
+    background-color: rgb(131, 82, 82);
 
     padding: 0;
     margin: 0;
     max-width: inherit;
-    color: white;
+
 }
 
 nav>ul {
@@ -14,24 +14,22 @@ nav>ul {
 
 li {
     text-decoration: none;
-    color: white;
 }
 
-.button{
+.button {
     text-decoration: none;
-    color: white;
+    color: rgb(255, 187, 187);
 }
 
 li {
     padding: 1em;
     list-style: none;
-    border: 1px solid black;
     margin: 0.5em;
     min-width: 2em;
     text-align: center;
 }
 
-li:hover {
-    background-color: rgb(56, 54, 58);
+.button:hover {
+    color: rgb(211, 148, 148);
     cursor: pointer;
 }

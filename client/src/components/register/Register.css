@@ -13,7 +13,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #040d27;
   column-gap: 30px;
 }
 
@@ -86,14 +85,14 @@ form {
 }
 
 .field button {
-  color: #fff;
-  background-color: #0171d3;
+  color: rgb(255, 187, 187);
+  background-color: rgb(131, 82, 82);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .field button:hover {
-  background-color: #016dcb;
+  background-color: rgb(113, 71, 71);
 }
 
 .form-link {
@@ -109,7 +108,7 @@ form {
 }
 
 .form a {
-  color: #0171d3;
+  color: rgb(131, 82, 82);
   text-decoration: none;
 }
 

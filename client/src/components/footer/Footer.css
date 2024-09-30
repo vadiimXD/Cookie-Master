@@ -2,9 +2,19 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: rgb(53, 50, 55);
+    background-color: rgb(131, 82, 82);
     padding: 1em;
     text-align: center;
     display: inline;
-    color: white;
+    color: rgb(255, 187, 187);
+}
+
+a {
+    color: rgb(255, 187, 187);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(211, 148, 148);
+    cursor: pointer;
 }

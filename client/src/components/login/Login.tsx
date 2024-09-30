@@ -1,7 +1,7 @@
 import "./Login.css"
 
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { changeHandler, loginFormSubmitHandler } from "../../utils/formUtils";
 
@@ -24,7 +24,7 @@ export default function Login() {
         <section className="container forms">
             <div className="form login">
                 <div className="form-content">
-                    <header>Login</header>
+                    <h3>Login</h3>
                     <form onSubmit={(e) => loginFormSubmitHandler(e, loginFormValues, context?.setState, navigate, setError)}>
 
                         <div className="field input-field">
@@ -52,9 +52,9 @@ export default function Login() {
                     <div className="form-link">
                         <span>
                             <p>Don't have an account?</p>
-                            <a href="#" className="link signup-link">
+                            <Link to={"/register"} className="link signup-link">
                                 Signup
-                            </a>
+                            </Link>
                         </span>
                     </div>
                 </div>
