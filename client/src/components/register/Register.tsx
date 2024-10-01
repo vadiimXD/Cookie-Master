@@ -22,7 +22,7 @@ export default function Register() {
         <section className="container forms">
             <div className="form login">
                 <div className="form-content">
-                    <h3>Register</h3>
+                    <h3>Регистрация</h3>
                     <form onSubmit={(e) => registerFormSubmitHandler(e, registerFormValues, context?.setState, navigate, setError)}>
 
                         <div className="field input-field">
@@ -44,15 +44,15 @@ export default function Register() {
 
 
                         <div className="field button-field">
-                            <button>Register</button>
+                            <button>Регистрация</button>
                         </div>
 
                     </form>
                     <div className="form-link">
                         <span>
-                           <p>Already have account?</p>
+                           <p>Имаш вече профил?</p>
                             <Link to="/login" className="link signup-link">
-                                Login
+                                Влизане
                             </Link>
                         </span>
                     </div>
@@ -61,13 +61,13 @@ export default function Register() {
                 <div className="media-options">
                     <a href="#" className="field google">
                         <img src="https://cdn1.iconfinder.com/data/icons/social-media-set-for-free/32/facebook-512.png" alt="" className="google-img" />
-                        <span>Login with Facebook</span>
+                        <span>Регистрирай се със Facebook</span>
                     </a>
                 </div>
                 <div className="media-options">
                     <a href="#" className="field google">
                         <img src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-pks9lbdv.png" alt="" className="google-img" />
-                        <span>Register with Google</span>
+                        <span>Регистрирай се с Google</span>
                     </a>
                 </div>
             </div>

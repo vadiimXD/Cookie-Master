@@ -54,17 +54,34 @@ async function loginFormSubmitHandler(e: any, values: LoginType, setState: any, 
     }
 }
 
+async function createFormSubmitHandler(e: any, values: any) {
+    e.preventDefault()
+    console.log(values)
+}
+
 function changeHandler(e: any, setFormValues: any) {
     console.log(e.target.name, " name")
     console.log(e.target.value, " value")
-    setFormValues((oldValues: any) => ({
-        ...oldValues,
-        [e.target.name]: e.target.value,
-    }));
+    if (e.target.files) {
+        const reader = new FileReader()
+        console.log(e.target.files[0], "file")
+        const url = reader.readAsDataURL(e.target.files[0])
+        console.log(url, "file from reader")
+    
+        // reader.onload = (events: any) => {
+        //   console.log(events.target.result, "result")
+        // }
+    } else {
+        setFormValues((oldValues: any) => ({
+            ...oldValues,
+            [e.target.name]: e.target.value,
+        }));
+    }
 };
 
 export {
     registerFormSubmitHandler,
     loginFormSubmitHandler,
+    createFormSubmitHandler,
     changeHandler
 }

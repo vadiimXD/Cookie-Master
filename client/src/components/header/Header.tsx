@@ -15,25 +15,25 @@ export default function Header() {
         <header>
             <nav>
                 <ul>
-                    <li> <Link to="/" className="button">Home</Link> </li>
-                    <li> <Link to="/search" className="button">Search</Link> </li>
-                    <li> <Link to="/catalog" className="button">Catalog</Link> </li>
+                    <li> <Link to="/" className="button">Начало</Link> </li>
+                    <li> <Link to="/search" className="button">Търсене</Link> </li>
+                    <li> <Link to="/catalog" className="button">Каталог</Link> </li>
                     {isLogged
                         ?
                         <>
-                            <li> <Link to="/create" className="button">Create</Link> </li>
-                            <li> <Link to="/profile" className="button">Profile</Link> </li>
+                            <li> <Link to="/create" className="button">Създай</Link> </li>
+                            <li> <Link to="/profile" className="button">Профил</Link> </li>
                             <li> <a className="button" onClick={() => {
                                 context?.setState(false)
                                 localStorage.clear()
                                 navigate("/login")
-                            }}>Logout</a> </li>
+                            }}>Излизане</a> </li>
 
                         </>
                         :
                         <>
-                            <li> <Link to="/register" className="button">Register</Link> </li>
-                            <li> <Link to="/login" className="button">Login</Link> </li>
+                            <li> <Link to="/register" className="button">Регистрация</Link> </li>
+                            <li> <Link to="/login" className="button">Влизане</Link> </li>
                         </>}
 
 

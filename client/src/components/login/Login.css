@@ -16,6 +16,11 @@
   column-gap: 30px;
 }
 
+span {
+  color: rgb(152, 102, 102);
+
+}
+
 h3 {
   color: rgb(152, 102, 102);
 }

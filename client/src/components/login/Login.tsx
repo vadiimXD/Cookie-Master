@@ -24,7 +24,7 @@ export default function Login() {
         <section className="container forms">
             <div className="form login">
                 <div className="form-content">
-                    <h3>Login</h3>
+                    <h3>Влизане</h3>
                     <form onSubmit={(e) => loginFormSubmitHandler(e, loginFormValues, context?.setState, navigate, setError)}>
 
                         <div className="field input-field">
@@ -40,20 +40,20 @@ export default function Login() {
 
                         <div className="form-link">
                             <a href="#" className="forgot-pass">
-                                Forgot password?
+                                Забравена парола?
                             </a>
                         </div>
 
                         <div className="field button-field">
-                            <button>Login</button>
+                            <button>Влизане</button>
                         </div>
 
                     </form>
                     <div className="form-link">
                         <span>
-                            <p>Don't have an account?</p>
+                            <p>Нямате профил?</p>
                             <Link to={"/register"} className="link signup-link">
-                                Signup
+                                Регистрирай се
                             </Link>
                         </span>
                     </div>
@@ -63,13 +63,13 @@ export default function Login() {
                 <div className="media-options">
                     <a href="#" className="field google">
                         <img src="https://cdn1.iconfinder.com/data/icons/social-media-set-for-free/32/facebook-512.png" alt="" className="google-img" />
-                        <span>Login with Facebook</span>
+                        <span>Влезте със Facebook</span>
                     </a>
                 </div>
                 <div className="media-options">
                     <a href="#" className="field google">
                         <img src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-pks9lbdv.png" alt="" className="google-img" />
-                        <span>Login with Google</span>
+                        <span>Влезте с Google</span>
                     </a>
                 </div>
             </div>

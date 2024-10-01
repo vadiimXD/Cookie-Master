@@ -1,4 +1,4 @@
-const Shoe = require("../models/Shoe")
+// const Shoe = require("../models/Shoe")
 const User = require("../models/User")
 
 exports.getAllShoes = () => Shoe.find();
