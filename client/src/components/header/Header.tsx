@@ -17,6 +17,7 @@ export default function Header() {
                 <ul>
                     <li> <Link to="/" className="button">Home</Link> </li>
                     <li> <Link to="/search" className="button">Search</Link> </li>
+                    <li> <Link to="/catalog" className="button">Catalog</Link> </li>
                     {isLogged
                         ?
                         <>
