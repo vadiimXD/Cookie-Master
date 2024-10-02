@@ -1,6 +1,10 @@
 import { LoginType } from "../types/LoginType";
 import { RegisterType } from "../types/RegisterType";
 import requester from "./requester";
+import { RecipeType } from "../types/RecipeType";
+import { AuthType } from "../types/AuthType";
+import { getUser } from "./authUtil";
+import { json } from "react-router-dom";
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -54,23 +58,35 @@ async function loginFormSubmitHandler(e: any, values: LoginType, setState: any, 
     }
 }
 
-async function createFormSubmitHandler(e: any, values: any) {
+async function createFormSubmitHandler(e: any, values: RecipeType, setError: any, navigate: any) {
     e.preventDefault()
-    console.log(values)
+    if (!values.name || !values.image || !values.calories || !values.time || !values.recipe) return setError("Empty fields")
+
+    if (values.name.length < 3) return setError("Name min length is 2!")
+
+    if (Number(values.calories) < 1) return setError("Calories must be at least 1 calorie!")
+
+    if (Number(values.time) < 1) return setError("Time must be at least 1 minute!")
+
+    if (values.recipe.length < 5) return setError("Recipe min length is 4!")
+
+    const user: AuthType = getUser()
+    values.owner = user.userId
+    values.image = values.image.toString()
+    try {
+        await requester("http://localhost:1337/create", "POST", true, values)
+        navigate("/catalog")
+    } catch (error) {
+        setError("An error occurred while executing the request!")
+    }
 }
 
 function changeHandler(e: any, setFormValues: any) {
-    console.log(e.target.name, " name")
-    console.log(e.target.value, " value")
     if (e.target.files) {
-        const reader = new FileReader()
-        console.log(e.target.files[0], "file")
-        const url = reader.readAsDataURL(e.target.files[0])
-        console.log(url, "file from reader")
-    
-        // reader.onload = (events: any) => {
-        //   console.log(events.target.result, "result")
-        // }
+        setFormValues((oldValues: any) => ({
+            ...oldValues,
+            [e.target.name]: e.target.files[0],
+        }));
     } else {
         setFormValues((oldValues: any) => ({
             ...oldValues,

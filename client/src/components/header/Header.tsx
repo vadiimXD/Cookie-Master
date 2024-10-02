@@ -8,8 +8,6 @@ export default function Header() {
     const navigate = useNavigate()
     const context = useContext(AuthContext)
     const isLogged = localStorage.getItem("auth");
-    console.log(context)
-    console.log(isLogged, "log info")
 
     return (
         <header>

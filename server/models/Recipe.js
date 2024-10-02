@@ -1,32 +1,34 @@
 const mongoose = require("mongoose")
 
 const RecipeSchema = new mongoose.Schema({
-    brand: {
+    name: {
         type: String,
         required: true,
-        minLength: [3,"Brand min length is 2!"],
+        minLength: [3, "Name min length is 2!"],
         trim: true,
     },
-    model: {
-        type: String,
-        required: true,
-        minLength: [2,"Model min length is 2!"],
-        trim: true,
-    },
-    imageUrl: {
+    image: {
         type: String,
         required: true,
         trim: true,
-        match: [/^https?:\/\//, "Invalid url!"],
     },
-    release: {
-        type: String,
-        required: true,
-    },
-    price: {
+    calories: {
         type: Number,
         required: true,
-        min: [0,"Invalid price!"]
+        trim: true,
+        min:[1,"calories must be at least 1 calorie"]
+    },
+    time: {
+        type: Number,
+        required: true,
+        trim: true,
+        min:[1,"time must be at least 1 minute"]
+    },
+    recipe: {
+        type: String,
+        required: true,
+        trim: true,
+        minLength: [5, "Recipe min length is 4!"],
     },
     owner: {
         type: mongoose.Types.ObjectId,
@@ -39,6 +41,6 @@ const RecipeSchema = new mongoose.Schema({
 })
 
 
-const Recipe = mongoose.model("Recipe", ShoeSchema)
+const Recipe = mongoose.model("Recipe", RecipeSchema)
 
 module.exports = Recipe;

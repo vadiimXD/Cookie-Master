@@ -1,13 +1,13 @@
 const router = require("express").Router();
 
-const shoeService = require("../services/shoeService");
+const recipeService = require("../services/recipeService");
 
 
 
 router.post("/create", async (req, res) => {
-    console.log(req.body)
+    console.log(req.body, " from controller")
     try {
-        await shoeService.createOffer(req.body)
+        await recipeService.createOffer(req.body)
         res.send({ created: true })
     } catch (error) {
         res.send(error.message)
@@ -18,7 +18,7 @@ router.post("/create", async (req, res) => {
 
 router.get("/catalog", async (req, res) => {
     try {
-        const shoes = await shoeService.getAllShoes()
+        const shoes = await recipeService.getAllShoes()
         res.json(shoes)
     } catch (error) {
         res.send(error.message)
@@ -28,7 +28,7 @@ router.get("/catalog", async (req, res) => {
 
 router.get("/last", async (req, res) => {
     try {
-        const shoes = await shoeService.getLastShoes()
+        const shoes = await recipeService.getLastShoes()
         res.json(shoes)
     } catch (error) {
         res.send(error.message)
@@ -36,9 +36,9 @@ router.get("/last", async (req, res) => {
     }
 })
 
-router.get("/details/:shoeId", async (req, res) => {
+router.get("/details/:recipeId", async (req, res) => {
     try {
-        const product = await shoeService.getOneProduct(req.params.shoeId);
+        const product = await recipeService.getOneProduct(req.params.shoeId);
         res.json(product)
     } catch (error) {
         res.send(error.message)
@@ -59,7 +59,7 @@ router.post("/buy", async (req, res) => {
 
 router.post("/edit", async (req, res) => {
     try {
-        await shoeService.updateProduct(req.body._id, req.body)
+        await recipeService.updateProduct(req.body._id, req.body)
         res.send({ edited: true })
     } catch (error) {
         res.send(error.message)
@@ -67,9 +67,9 @@ router.post("/edit", async (req, res) => {
     }
 })
 
-router.delete("/delete/:shoeId", async (req, res) => {
+router.delete("/delete/:recipeId", async (req, res) => {
     try {
-        await shoeService.deleteProduct(req.params.shoeId)
+        await recipeService.deleteProduct(req.params.shoeId)
         res.send({ deleted: true })
     } catch (error) {
         res.send(error.message)
@@ -80,7 +80,7 @@ router.delete("/delete/:shoeId", async (req, res) => {
 router.post("/search", async (req, res) => {
     try {
         console.log(req.body.brand, "brand")
-        const shoes = await shoeService.searchProducts(req.body.brand)
+        const shoes = await recipeService.searchProducts(req.body.brand)
         console.log(shoes, "shoes")
         res.json(shoes)
     } catch (error) {
@@ -91,7 +91,7 @@ router.post("/search", async (req, res) => {
 router.post("/like", async (req, res) => {
     try {
         
-        const shoe = await shoeService.addLike(req.body.userId, req.body.shoeId)
+        const shoe = await recipeService.addLike(req.body.userId, req.body.shoeId)
         console.log(shoe.likes)
         res.json(shoe.likes)
     } catch (error) {
@@ -101,7 +101,7 @@ router.post("/like", async (req, res) => {
 
 router.post("/unlike", async (req, res) => {
     try {
-        const shoe = await shoeService.removeLike(req.body.userId, req.body.shoeId)
+        const shoe = await recipeService.removeLike(req.body.userId, req.body.shoeId)
         console.log(shoe.likes)
         res.json(shoe.likes)
     } catch (error) {
@@ -109,9 +109,9 @@ router.post("/unlike", async (req, res) => {
     }
 })
 
-router.get("/likes/:shoeId", async (req, res) => {
+router.get("/likes/:recipeId", async (req, res) => {
     try {
-        const shoe = await shoeService.getOneProduct(req.params.shoeId);
+        const shoe = await recipeService.getOneProduct(req.params.shoeId);
         res.json(shoe.likes)
     } catch (error) {
         res.send(error.message)
