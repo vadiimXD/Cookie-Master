@@ -5,4 +5,6 @@ export type RecipeType = {
     time: string
     recipe: string
     owner: string
+    _id: string
+    likes: string[]
 }

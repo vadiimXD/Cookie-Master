@@ -1,15 +1,15 @@
 const Recipe = require("../models/Recipe")
 const User = require("../models/User")
 
-exports.getAllShoes = () => Recipe.find();
+exports.getAllRecipes = () => Recipe.find();
 
 exports.getLastShoes = () => Recipe.find().sort({ _id: -1 }).limit(3);
 
-exports.updateProduct = (productId, body) => Recipe.findByIdAndUpdate(productId, body, { runValidators: true });
+exports.updateProduct = (recipeId, body) => Recipe.findByIdAndUpdate(recipeId, body, { runValidators: true });
 
-exports.getOneProduct = (productId) => Recipe.findById(productId);
+exports.getOneProduct = (recipeId) => Recipe.findById(recipeId);
 
-exports.deleteProduct = (productId) => Recipe.findByIdAndDelete(productId);
+exports.deleteProduct = (recipeId) => Recipe.findByIdAndDelete(recipeId);
 
 exports.addLike = async (userId, recipeId) => {
     await Shoe.findByIdAndUpdate(recipeId, { $push: { likes: userId } })

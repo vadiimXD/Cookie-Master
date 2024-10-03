@@ -18,8 +18,8 @@ router.post("/create", async (req, res) => {
 
 router.get("/catalog", async (req, res) => {
     try {
-        const shoes = await recipeService.getAllShoes()
-        res.json(shoes)
+        const recipes = await recipeService.getAllRecipes()
+        res.json(recipes)
     } catch (error) {
         res.send(error.message)
 
@@ -38,7 +38,7 @@ router.get("/last", async (req, res) => {
 
 router.get("/details/:recipeId", async (req, res) => {
     try {
-        const product = await recipeService.getOneProduct(req.params.shoeId);
+        const product = await recipeService.getOneProduct(req.params.recipeId);
         res.json(product)
     } catch (error) {
         res.send(error.message)
@@ -53,7 +53,7 @@ router.post("/buy", async (req, res) => {
         res.send(true)
     } catch (error) {
         res.send(error.message)
-        
+
     }
 })
 
@@ -73,7 +73,7 @@ router.delete("/delete/:recipeId", async (req, res) => {
         res.send({ deleted: true })
     } catch (error) {
         res.send(error.message)
-        
+
     }
 })
 
@@ -90,7 +90,7 @@ router.post("/search", async (req, res) => {
 
 router.post("/like", async (req, res) => {
     try {
-        
+
         const shoe = await recipeService.addLike(req.body.userId, req.body.shoeId)
         console.log(shoe.likes)
         res.json(shoe.likes)

@@ -60,6 +60,7 @@ async function loginFormSubmitHandler(e: any, values: LoginType, setState: any, 
 
 async function createFormSubmitHandler(e: any, values: RecipeType, setError: any, navigate: any) {
     e.preventDefault()
+    console.log(values.image)
     if (!values.name || !values.image || !values.calories || !values.time || !values.recipe) return setError("Empty fields")
 
     if (values.name.length < 3) return setError("Name min length is 2!")
@@ -72,9 +73,12 @@ async function createFormSubmitHandler(e: any, values: RecipeType, setError: any
 
     const user: AuthType = getUser()
     values.owner = user.userId
-    values.image = values.image.toString()
+
     try {
-        await requester("http://localhost:1337/create", "POST", true, values)
+        const response = await requester("http://localhost:1337/create", "POST", true, values)
+
+        const result = await response.json()
+        console.log(result)
         navigate("/catalog")
     } catch (error) {
         setError("An error occurred while executing the request!")

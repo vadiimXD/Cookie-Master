@@ -9,11 +9,13 @@ export default function Create() {
     const navigate = useNavigate()
     const [createFormValues, setCreateFormValues] = useState({
         name: "",
-        image: {},
+        image: "",
         calories: "",
         time: "",
         recipe: "",
-        owner: ""
+        owner: "",
+        _id: "",
+        likes: []
     })
 
     return (

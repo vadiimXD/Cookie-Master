@@ -1,43 +1,36 @@
+import { useEffect, useState } from "react";
 import "./Catalog.css"
+import { RecipeType } from "../../types/RecipeType";
+import requester from "../../utils/requester";
+import RecipeCard from "../recipeCard/RecipeCard";
 
 export default function Catalog() {
+
+    const [recipes, setRecipes] = useState<RecipeType[]>([])
+    const [error, setError] = useState("")
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const response = await requester("http://localhost:1337/catalog", "GET")
+                const result: RecipeType[] = await response.json();
+
+                setRecipes(result)
+                console.log(result)
+            } catch (error) {
+                setError("An error occurred while executing the request!")
+            }
+        })()
+    }, [])
+
     return (
         <section className="main">
-            <ul className="cards">
-                <li className="cards_item">
-                    <div className="card">
-                        <div className="card_image">
-                            <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShVUhLpDCcuJyKZmMGQKf1_exwWMMEi_KyiQ&s"
-                                alt="no img"
-                            />
-                            <span className="card_likes">
-                                <span>likes</span>9
-                            </span>
-                        </div>
-                        <div className="card_content">
-                            <h2 className="card_title">Farmstand Salad</h2>
-                            <div className="card_text">
-                                <p>
-                                    Dig into the freshest veggies of the season! This salad-in-a-jar
-                                    features a mixture of leafy greens and seasonal vegetables, fresh
-                                    from the farmer's market.
-                                </p>
-                                <hr />
-                                <p>
-                                    Served with your choice of dressing on the side:
-                                    <strong>housemade ranch</strong>,
-                                    <strong>cherry balsamic vinaigrette</strong>
-                                    <strong>creamy chipotle</strong>,
-                                    <strong>avocado green goddess</strong>, or
-                                    <strong>honey mustard</strong>. Add your choice of protein for $2
-                                    more.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            {recipes.length != 0
+                ? <ul className="cards">
+                    {recipes.map(recipe => <RecipeCard key={recipe._id} recipe={recipe} />)}
+                </ul>
+                :
+                <h1>No recipes</h1>}
         </section>
 
     );

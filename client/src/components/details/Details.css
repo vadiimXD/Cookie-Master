@@ -82,12 +82,32 @@ body {
   color: #DDDACB;
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
-  
+
   p {
     max-width: 700px;
   }
 
 }
+
+
+
+
+
+.btn {
+  /* min-width: 150px;
+  max-height: 50px; */
+  background-color: rgb(131, 82, 82);
+  color: rgb(211, 148, 148);
+}
+
+/* .edit {
+    margin-left: 2em;
+  }
+
+  .del {
+    margin-left: 2em;
+  } */
+
 .details_price {
   position: relative;
   top: 10px;
