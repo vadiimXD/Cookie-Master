@@ -1,13 +1,16 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./Details.css"
 import { useEffect, useState } from "react";
 import { RecipeType } from "../../types/RecipeType";
 import requester from "../../utils/requester";
+import { deleteHandler } from "../../utils/formUtils";
 
 export default function Details() {
     const params = useParams();
     const [recipe, setRecipe] = useState<RecipeType>()
     const [error, setError] = useState("")
+    const navigate = useNavigate();
+
     useEffect(() => {
         (async () => {
             try {
@@ -39,10 +42,10 @@ export default function Details() {
                                 <p>{recipe?.recipe}</p>
                             </div>
                         </div>
-                    <div className="btns">
-                        <button className="btn edit">Edit</button>
-                        <button className="btn del">Delete</button>
-                    </div>
+                        <div className="btns">
+                            <button className="btn edit">Редактиране</button>
+                            <button className="btn del" onClick={() => { deleteHandler(params.recipeId, setError, navigate) }}>Изтриване</button>
+                        </div>
                     </div>
                 </li>
             </ul>

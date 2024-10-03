@@ -69,7 +69,7 @@ router.post("/edit", async (req, res) => {
 
 router.delete("/delete/:recipeId", async (req, res) => {
     try {
-        await recipeService.deleteProduct(req.params.shoeId)
+        await recipeService.deleteProduct(req.params.recipeId)
         res.send({ deleted: true })
     } catch (error) {
         res.send(error.message)

@@ -4,8 +4,6 @@ import requester from "./requester";
 import { RecipeType } from "../types/RecipeType";
 import { AuthType } from "../types/AuthType";
 import { getUser } from "./authUtil";
-import { json } from "react-router-dom";
-
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
@@ -99,9 +97,25 @@ function changeHandler(e: any, setFormValues: any) {
     }
 };
 
+
+async function deleteHandler(recipeId: string | undefined, setError: any, navigate: any) {
+    console.log(recipeId)
+
+
+    try {
+        const response = await requester(`http://localhost:1337/delete/${recipeId}`, "DELETE")
+        const result = await response.json()
+        console.log(result)
+        navigate("/catalog")
+    } catch (error) {
+        setError("An error occurred while executing the request!")
+    }
+}
+
 export {
     registerFormSubmitHandler,
     loginFormSubmitHandler,
     createFormSubmitHandler,
+    deleteHandler,
     changeHandler
 }
